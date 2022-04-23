@@ -1,0 +1,19 @@
+.appbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  height: 4.5rem;
+  background-color: #24292f;
+}
+
+@media (max-width: 768px) {
+  .appbar {
+    padding: 0.625rem 1rem 0.625rem 1.25rem;
+    height: 3.625rem;
+  }
+}
+
+.main {
+  padding: 2.125rem 9rem;
+}
