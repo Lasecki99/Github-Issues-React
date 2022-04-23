@@ -1,13 +1,8 @@
 import { InputHTMLAttributes } from "react";
 import styles from "./SearchInput.module.css";
 
-const SearchInput = ({
-  placeholder,
-  ...rest
-}: InputHTMLAttributes<HTMLInputElement>) => {
-  return (
-    <input placeholder={placeholder} className={styles.searchInput} {...rest} />
-  );
+const SearchInput = ({ ...props }: InputHTMLAttributes<HTMLInputElement>) => {
+  return <input className={styles.searchInput} {...props} />;
 };
 
 export default SearchInput;
