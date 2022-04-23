@@ -1,4 +1,5 @@
 import axios from "axios";
+import instance from "../utils/axiosInstance";
 import HttpException from "../utils/exceptions/HttpException";
 import {
   GithubRespositoriesResponse,
@@ -23,7 +24,7 @@ class GithubService {
   ): Promise<GithubRespositoriesResponse> {
     return new Promise(async (resolve, reject) => {
       try {
-        const { data } = await axios.get<GithubRespositoriesResponse>(
+        const { data } = await instance.get<GithubRespositoriesResponse>(
           `${this.baseUrl}/search/repositories?q=${encodeURIComponent(phrase)}`
         );
         resolve(data);
@@ -44,7 +45,7 @@ class GithubService {
   static searchUsersByPhrase(phrase: string): Promise<GithubUsersResponse> {
     return new Promise(async (resolve, reject) => {
       try {
-        const { data } = await axios.get<GithubUsersResponse>(
+        const { data } = await instance.get<GithubUsersResponse>(
           `${this.baseUrl}/search/users?q=${encodeURIComponent(phrase)}`
         );
         resolve(data);
