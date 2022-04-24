@@ -17,12 +17,16 @@ const App = () => {
 
   useEffect(() => {
     async function fetchData() {
+      setLoading(true);
+
       if (error) {
         setError(null);
       }
 
       try {
-        const res = await GithubService.searchUsersAndReposByPhrase("test");
+        const res = await GithubService.searchUsersAndReposByPhrase(
+          value || "test"
+        );
         setResults(res);
         setLoading(false);
       } catch (err) {

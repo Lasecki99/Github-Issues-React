@@ -7,13 +7,17 @@
   background-color: #24292f;
 }
 
+.main {
+  padding: 2.125rem 9rem;
+}
+
 @media (max-width: 768px) {
   .appbar {
     padding: 0.625rem 1rem 0.625rem 1.25rem;
     height: 3.625rem;
   }
-}
 
-.main {
-  padding: 2.125rem 9rem;
+  .main {
+    padding: 2.125rem 1rem;
+  }
 }

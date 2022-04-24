@@ -1,0 +1,53 @@
+.nameIconWrapper,
+.statsWrapper {
+  display: flex;
+  align-items: center;
+  color: #6f7781;
+  font-weight: 500;
+}
+
+.statsWrapper {
+  margin: 1rem 0 0 1.625rem;
+  font-size: 0.75rem;
+}
+
+.nameText,
+.description {
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+.nameText {
+  margin-left: 0.625rem;
+  color: #166cd7;
+}
+
+.nameText:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.description {
+  margin-left: 1.625rem;
+  color: #6f7781;
+}
+
+.languageBox {
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-left: 0.875rem;
+  border-radius: 50%;
+  background-color: black; /* In case if color will not be defined in githubLanguageColors */
+}
+
+.license,
+.lastUpdate {
+  margin-left: 0.875rem;
+  transform: translateY(1px);
+}
+
+.starsCount,
+.language {
+  transform: translateY(1px);
+  margin-left: 3px;
+}
