@@ -10,7 +10,7 @@ import {
   User,
 } from "../utils/interfaces/githubUser.interface";
 
-interface ReposAndUsersMixin {
+export interface ReposAndUsersMixin {
   incomplete_results: boolean;
   total_count: number;
   items: (RepositoryItem | User)[];
@@ -25,17 +25,14 @@ class GithubService {
     return new Promise(async (resolve, reject) => {
       try {
         const { data } = await instance.get<GithubRespositoriesResponse>(
-          `${this.baseUrl}/search/repositories?q=${encodeURIComponent(phrase)}`
+          `${this.baseUrl}/search/repositories?q=${encodeURIComponent(
+            phrase
+          )}&per_page=15`
         );
         resolve(data);
       } catch (err) {
         if (axios.isAxiosError(err)) {
-          reject(
-            new HttpException(
-              Number(err.response?.data.status),
-              err.response?.data.message
-            )
-          );
+          reject(new HttpException(Number(err.response?.status), err.message));
         }
         reject(err);
       }
@@ -46,14 +43,16 @@ class GithubService {
     return new Promise(async (resolve, reject) => {
       try {
         const { data } = await instance.get<GithubUsersResponse>(
-          `${this.baseUrl}/search/users?q=${encodeURIComponent(phrase)}`
+          `${this.baseUrl}/search/users?q=${encodeURIComponent(
+            phrase
+          )}&per_page=15`
         );
         resolve(data);
       } catch (err) {
         if (axios.isAxiosError(err)) {
           reject(
             new HttpException(
-              Number(err.response?.data.status),
+              Number(err.response?.status),
               err.response?.data.message
             )
           );
