@@ -7,13 +7,13 @@ import {
 } from "../utils/interfaces/githubRepository.interface";
 import {
   GithubUsersResponse,
-  User,
+  UserByLogin,
 } from "../utils/interfaces/githubUser.interface";
 
 export interface ReposAndUsersMixin {
   incomplete_results: boolean;
   total_count: number;
-  items: (RepositoryItem | User)[];
+  items: (RepositoryItem | UserByLogin)[];
 }
 
 class GithubService {
@@ -27,7 +27,7 @@ class GithubService {
         const { data } = await instance.get<GithubRespositoriesResponse>(
           `${this.baseUrl}/search/repositories?q=${encodeURIComponent(
             phrase
-          )}&per_page=15`
+          )}&per_page=10`
         );
         resolve(data);
       } catch (err) {
@@ -45,7 +45,28 @@ class GithubService {
         const { data } = await instance.get<GithubUsersResponse>(
           `${this.baseUrl}/search/users?q=${encodeURIComponent(
             phrase
-          )}&per_page=15`
+          )}&per_page=10`
+        );
+        resolve(data);
+      } catch (err) {
+        if (axios.isAxiosError(err)) {
+          reject(
+            new HttpException(
+              Number(err.response?.status),
+              err.response?.data.message
+            )
+          );
+        }
+        reject(err);
+      }
+    });
+  }
+
+  static getUserByLogin(login: string): Promise<UserByLogin> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const { data } = await instance.get<UserByLogin>(
+          `${this.baseUrl}/users/${encodeURIComponent(login)}`
         );
         resolve(data);
       } catch (err) {
@@ -72,9 +93,12 @@ class GithubService {
           this.searchUsersByPhrase(phrase),
         ]);
 
-        const items = [...res[0].items, ...res[1].items].sort(
-          (a, b) => a.id - b.id
+        //We need to make additional request for each user to get required fields (full name, location)
+        const users = await Promise.all(
+          res[1].items.map((user) => this.getUserByLogin(user.login))
         );
+
+        const items = [...res[0].items, ...users].sort((a, b) => a.id - b.id);
 
         resolve({
           incomplete_results:
