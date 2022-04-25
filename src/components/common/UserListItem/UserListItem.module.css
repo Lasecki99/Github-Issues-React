@@ -13,7 +13,7 @@
 .nameText {
   margin-left: 0.5rem;
   text-decoration: none;
-  color: #166cd7;
+  color: var(--blueLinkText);
 }
 
 .nameText:hover {
@@ -23,7 +23,7 @@
 .bio {
   margin-top: 1.25rem;
   font-size: 0.875rem;
-  color: #24292f;
+  color: var(--darkestGrayText);
 }
 
 .location {
@@ -38,7 +38,7 @@
 
 .login,
 .location {
-  color: #6f7781;
+  color: var(--darkGrayText);
 }
 
 .login,

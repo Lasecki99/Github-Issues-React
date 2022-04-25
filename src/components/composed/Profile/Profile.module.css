@@ -23,12 +23,13 @@
 
 .login {
   font-size: 1.25rem;
-  color: #6f7781;
+  color: var(--darkGrayText);
 }
 
 .nameText {
   margin-top: 1rem;
   font-size: 1.625rem;
+  color: var(--darkestGrayText);
 }
 
 .statsWrapper {
@@ -38,9 +39,14 @@
   margin-top: 0.5rem;
   font-size: 0.75rem;
   font-weight: 500;
-  color: #6f7781;
+  color: var(--darkGrayText);
 }
 
 .following {
   margin-left: 0.75rem;
+}
+
+.followersIcon {
+  transform: translateY(-1px);
+  margin-right: 0.2rem;
 }

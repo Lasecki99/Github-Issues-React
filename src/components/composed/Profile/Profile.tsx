@@ -61,7 +61,7 @@ const Profile = () => {
             <img
               src={FollowersIcon}
               alt="followers"
-              style={{ transform: "translateY(-1px)" }}
+              className={styles.followersIcon}
             />
             <span>
               {`${userData.followers.toLocaleString()} follower${

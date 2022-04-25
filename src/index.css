@@ -1,3 +1,11 @@
+:root {
+  --pageBackground: #e5e5e5;
+  --darkGrayText: #6f7781;
+  --darkestGrayText: #24292f;
+  --input: #d0d7de;
+  --blueLinkText: #166cd7;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,5 +14,5 @@
 }
 
 body {
-  background-color: #e5e5e5;
+  background-color: var(--pageBackground);
 }

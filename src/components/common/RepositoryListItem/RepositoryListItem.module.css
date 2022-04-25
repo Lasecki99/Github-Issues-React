@@ -2,7 +2,7 @@
 .statsWrapper {
   display: flex;
   align-items: center;
-  color: #6f7781;
+  color: var(--darkGrayText);
   font-weight: 500;
 }
 
@@ -19,7 +19,7 @@
 
 .nameText {
   margin-left: 0.625rem;
-  color: #166cd7;
+  color: var(--blueLinkText);
 }
 
 .nameText:hover {
@@ -29,7 +29,7 @@
 
 .description {
   margin: 0.3rem 0 0 1.625rem;
-  color: #6f7781;
+  color: var(--darkGrayText);
 }
 
 .languageBox {
