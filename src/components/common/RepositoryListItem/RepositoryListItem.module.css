@@ -7,8 +7,15 @@
 }
 
 .statsWrapper {
+  flex-wrap: wrap;
   margin: 1rem 0 0 1.625rem;
   font-size: 0.75rem;
+}
+
+.statsWrapper div {
+  display: flex;
+  align-items: center;
+  margin: 0.15rem 0.85rem 0 0;
 }
 
 .nameText,
@@ -35,14 +42,12 @@
 .languageBox {
   width: 0.75rem;
   height: 0.75rem;
-  margin-left: 0.875rem;
   border-radius: 50%;
   background-color: black; /* In case if color will not be defined in githubLanguageColors */
 }
 
 .license,
 .lastUpdate {
-  margin-left: 0.875rem;
   transform: translateY(1px);
 }
 

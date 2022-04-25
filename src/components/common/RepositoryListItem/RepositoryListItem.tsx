@@ -20,26 +20,36 @@ const RepositoryListItem = ({ repository }: RepositoryListItemProps) => {
       </div>
       <p className={styles.description}>{repository.description}</p>
       <div className={styles.statsWrapper}>
-        <img src={StarIcon} alt="star" />
-        <span className={styles.starsCount}>{repository.stargazers_count}</span>
+        <div>
+          <img src={StarIcon} alt="star" />
+          <span className={styles.starsCount}>
+            {repository.stargazers_count}
+          </span>
+        </div>
+
         {repository.language && (
-          <>
+          <div>
             <span
               className={`${styles.languageBox} ${repository.language}`}
             ></span>
             <p className={styles.language}>{repository.language}</p>
-          </>
+          </div>
         )}
+
         {repository.license && (
-          <p className={styles.license}>{repository.license.name}</p>
+          <div>
+            <p className={styles.license}>{repository.license.name}</p>
+          </div>
         )}
-        <p className={styles.lastUpdate}>
-          {!checkIfDateIsOlderThan(repository.updated_at, thirtyDaysInMs)
-            ? `Updated ${moment(repository.updated_at).fromNow()}`
-            : `Updated on ${moment(repository.updated_at).format(
-                "Do MMM YYYY"
-              )}`}
-        </p>
+        <div>
+          <p className={styles.lastUpdate}>
+            {!checkIfDateIsOlderThan(repository.updated_at, thirtyDaysInMs)
+              ? `Updated ${moment(repository.updated_at).fromNow()}`
+              : `Updated on ${moment(repository.updated_at).format(
+                  "Do MMM YYYY"
+                )}`}
+          </p>
+        </div>
       </div>
     </li>
   );
