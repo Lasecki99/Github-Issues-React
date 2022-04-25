@@ -1,8 +1,19 @@
-# Getting Started with Create React App
+# Github Issues
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) with Typescript template.
 
-## Available Scripts
+## Before first run
+
+For unauthenticated users, github has limitations (10 requests per minute for searching API and 60 request per minute for fetching users by login). To increase this limit to 30 (from 10) and 5000 (from 60) you need to:
+
+- Create .env file from env.example file in root directory
+- Fill both envs variables, you can generate your token here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+
+## How to run?
+
+Developed and tested with:
+
+### `Node v16.14.2 and Npm 8.5.0`
 
 In the project directory, you can run:
 
@@ -13,11 +24,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
