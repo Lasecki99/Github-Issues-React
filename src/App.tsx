@@ -18,6 +18,7 @@ const App = () => {
         <SearchInput
           placeholder="Search"
           value={text}
+          maxLength={256}
           onChange={(e) => setText(e.target.value)}
         />
       )}
