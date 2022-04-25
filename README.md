@@ -9,6 +9,10 @@ For unauthenticated users, github has limitations (10 requests per minute for se
 - Create .env file from env.example file in root directory
 - Fill both envs variables, you can generate your token here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 
+## What could be improved?
+
+Requests to github API should be made on server to avoid exposing personal access token in Network tab
+
 ## How to run?
 
 Developed and tested with:
