@@ -8,3 +8,7 @@
   color: var(--input);
   font-weight: 500;
 }
+
+.searchInput::placeholder {
+  color: var(--input);
+}
