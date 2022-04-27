@@ -11,7 +11,7 @@ const UserListItem = ({ user }: UserListItemProps) => {
       {user.name && (
         <div className={styles.nameIconWrapper}>
           <img
-            src={user.avatar_url}
+            src={user.avatarUrl}
             alt="user avatar"
             className={styles.userAvatar}
           />

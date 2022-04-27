@@ -16,14 +16,14 @@ const RepositoryListItem = ({ repository }: RepositoryListItemProps) => {
     <li style={{ margin: "1.25rem 0 1rem 0" }}>
       <div className={styles.nameIconWrapper}>
         <img src={RepoIcon} alt="repository" />
-        <p className={styles.nameText}>{repository.full_name}</p>
+        <p className={styles.nameText}>{repository.fullName}</p>
       </div>
       <p className={styles.description}>{repository.description}</p>
       <div className={styles.statsWrapper}>
         <div>
           <img src={StarIcon} alt="star" />
           <span className={styles.starsCount}>
-            {repository.stargazers_count}
+            {repository.stargazersCount}
           </span>
         </div>
 
@@ -43,9 +43,9 @@ const RepositoryListItem = ({ repository }: RepositoryListItemProps) => {
         )}
         <div>
           <p className={styles.lastUpdate}>
-            {!checkIfDateIsOlderThan(repository.updated_at, thirtyDaysInMs)
-              ? `Updated ${moment(repository.updated_at).fromNow()}`
-              : `Updated on ${moment(repository.updated_at).format(
+            {!checkIfDateIsOlderThan(repository.updatedAt, thirtyDaysInMs)
+              ? `Updated ${moment(repository.updatedAt).fromNow()}`
+              : `Updated on ${moment(repository.updatedAt).format(
                   "Do MMM YYYY"
                 )}`}
           </p>

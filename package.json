@@ -12,6 +12,7 @@
     "@types/react-dom": "^18.0.2",
     "axios": "^0.26.1",
     "buffer": "^6.0.3",
+    "humps": "^2.0.1",
     "moment": "^2.29.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -44,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/humps": "^2.0.1"
   }
 }

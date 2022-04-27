@@ -50,7 +50,7 @@ const Profile = () => {
       ) : userData ? (
         <div className={styles.profileWrapper}>
           <img
-            src={userData.avatar_url}
+            src={userData.avatarUrl}
             alt="user avatar"
             className={styles.avatar}
           />

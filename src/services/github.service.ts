@@ -83,8 +83,8 @@ class GithubService {
 
       return {
         incomplete_results:
-          res[0].incomplete_results || res[1].incomplete_results,
-        total_count: res[0].total_count + res[1].total_count,
+          res[0].incompleteResults || res[1].incompleteResults,
+        total_count: res[0].totalCount + res[1].totalCount,
         items,
       };
     } catch (err) {
