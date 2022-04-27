@@ -1,6 +1,4 @@
-import axios from "axios";
-import instance from "../utils/axiosInstance";
-import HttpException from "../utils/exceptions/HttpException";
+import { httpClient } from "../utils/http/HttpClient";
 import {
   GithubRespositoriesResponse,
   RepositoryItem,
@@ -20,47 +18,32 @@ class GithubService {
   static searchRepositoriesByPhrase(
     phrase: string
   ): Promise<GithubRespositoriesResponse> {
-    return instance
+    return httpClient
       .get<GithubRespositoriesResponse>(
         `/search/repositories?q=${encodeURIComponent(phrase)}&per_page=10`
       )
       .then(({ data }) => data)
       .catch((err) => {
-        if (axios.isAxiosError(err)) {
-          throw new HttpException(Number(err.response?.status), err.message);
-        }
         throw err;
       });
   }
 
   static searchUsersByPhrase(phrase: string): Promise<GithubUsersResponse> {
-    return instance
+    return httpClient
       .get<GithubUsersResponse>(
         `/search/users?q=${encodeURIComponent(phrase)}&per_page=10`
       )
       .then(({ data }) => data)
       .catch((err) => {
-        if (axios.isAxiosError(err)) {
-          throw new HttpException(
-            Number(err.response?.status),
-            err.response?.data.message
-          );
-        }
         throw err;
       });
   }
 
   static getUserByLogin(login: string): Promise<UserByLogin> {
-    return instance
+    return httpClient
       .get<UserByLogin>(`/users/${encodeURIComponent(login)}`)
       .then(({ data }) => data)
       .catch((err) => {
-        if (axios.isAxiosError(err)) {
-          throw new HttpException(
-            Number(err.response?.status),
-            err.response?.data.message
-          );
-        }
         throw err;
       });
   }
@@ -88,12 +71,6 @@ class GithubService {
         items,
       };
     } catch (err) {
-      if (axios.isAxiosError(err)) {
-        throw new HttpException(
-          Number(err.response?.data.status),
-          err.response?.data.message
-        );
-      }
       throw err;
     }
   }

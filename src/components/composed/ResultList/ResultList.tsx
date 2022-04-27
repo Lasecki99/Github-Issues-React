@@ -7,7 +7,7 @@ import UserListItem from "../../common/UserListItem/UserListItem";
 import styles from "./ResultList.module.css";
 
 interface ResultListProps {
-  results: ReposAndUsersMixin | undefined;
+  results?: ReposAndUsersMixin;
   isLoading: boolean;
 }
 

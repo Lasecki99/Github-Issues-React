@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import GithubService from "../../../services/github.service";
-import HttpException from "../../../utils/exceptions/HttpException";
+import HttpException from "../../../utils/http/HttpException";
 import { UserByLogin } from "../../../utils/interfaces/githubUser.interface";
 import LoadingSpinner from "../../common/LoadingSpinner/LoadingSpinner";
 import styles from "./Profile.module.css";

@@ -3,7 +3,7 @@ import { useDebounce } from "use-debounce";
 import GithubService, {
   ReposAndUsersMixin,
 } from "../../../services/github.service";
-import HttpException from "../../../utils/exceptions/HttpException";
+import HttpException from "../../../utils/http/HttpException";
 import ResultList from "../ResultList/ResultList";
 
 interface MainPageProps {
@@ -29,15 +29,15 @@ const MainPage = ({ text }: MainPageProps) => {
           value || "nodejs"
         );
         setResults(res);
-        setLoading(false);
       } catch (err) {
         if (err instanceof HttpException && err.status === 403) {
           setError("You have reached limit of requests per 60 seconds.");
         } else {
           setError("Something went wrong");
         }
-        setLoading(false);
       }
+
+      setLoading(false);
     }
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
