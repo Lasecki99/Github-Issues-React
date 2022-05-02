@@ -9,8 +9,8 @@ import {
 } from "../utils/interfaces/githubUser.interface";
 
 export interface ReposAndUsersMixin {
-  incomplete_results: boolean;
-  total_count: number;
+  incompleteResults: boolean;
+  totalCount: number;
   items: (RepositoryItem | UserByLogin)[];
 }
 
@@ -65,9 +65,8 @@ class GithubService {
       const items = [...res[0].items, ...users].sort((a, b) => a.id - b.id);
 
       return {
-        incomplete_results:
-          res[0].incompleteResults || res[1].incompleteResults,
-        total_count: res[0].totalCount + res[1].totalCount,
+        incompleteResults: res[0].incompleteResults || res[1].incompleteResults,
+        totalCount: res[0].totalCount + res[1].totalCount,
         items,
       };
     } catch (err) {

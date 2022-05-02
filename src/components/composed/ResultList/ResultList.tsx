@@ -21,8 +21,8 @@ const ResultList = ({ results, isLoading }: ResultListProps) => {
       {results ? (
         <>
           <p className={styles.resultsText}>
-            {`${results.total_count.toLocaleString()} result${
-              results.total_count === 1 ? "" : "s"
+            {`${results.totalCount.toLocaleString()} result${
+              results.totalCount === 1 ? "" : "s"
             }`}
           </p>
           <Divider />
