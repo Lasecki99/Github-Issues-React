@@ -2,7 +2,7 @@ import Logo from "../../common/Logo/Logo";
 import styles from "./Layout.module.css";
 
 type LayoutProps = {
-  appBarContent: () => JSX.Element;
+  appBarContent: JSX.Element;
   children: React.ReactNode;
 };
 
@@ -12,7 +12,7 @@ const Layout = ({ appBarContent, children }: LayoutProps) => {
       <header className={styles.appbar}>
         <Logo />
 
-        <div>{appBarContent()}</div>
+        <div>{appBarContent}</div>
       </header>
       <main className={styles.main}>{children}</main>
     </>
