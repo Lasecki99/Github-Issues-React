@@ -8,10 +8,14 @@ const username: string = process.env.REACT_APP_GITHUB_USERNAME as string,
   authToken = buffer.from(String(`${username}:${token}`)).toString("base64");
 
 class HttpClient {
-  private client: AxiosInstance;
+  private _client: AxiosInstance;
+
+  get client() {
+    return this._client;
+  }
 
   constructor() {
-    this.client = this.initHttp();
+    this._client = this.initHttp();
   }
 
   get<T = any, R = AxiosResponse<T>>(
@@ -54,10 +58,7 @@ class HttpClient {
 
     http.interceptors.response.use(
       (response) => response,
-      (error) => {
-        const { response } = error;
-        return this.handleError(response);
-      }
+      (error) => this.handleError(error)
     );
 
     http.interceptors.response.use((response: AxiosResponse) => {
@@ -73,8 +74,8 @@ class HttpClient {
     if (axios.isAxiosError(error)) {
       return Promise.reject(
         new HttpException(
-          Number(error.response?.status),
-          error.response?.data.message
+          Number(error.response?.status || 500),
+          error.response?.data?.message || "Something went wrong"
         )
       );
     }

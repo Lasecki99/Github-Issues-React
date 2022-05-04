@@ -1,7 +1,7 @@
 import { useState, useCallback, useMemo } from "react";
 import HttpException from "../utils/http/HttpException";
 
-interface ApiResponse<T> {
+export interface ApiResponse<T> {
   result?: T;
   error?: HttpException;
   isFetching: boolean;
